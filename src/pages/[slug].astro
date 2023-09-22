@@ -22,31 +22,36 @@ import MainLayout from "../layouts/MainLayout.astro";
 
 const { slug } = Astro.params;
 
-// let res = await fetch(`https://skyhighrecruitment.com/wp-json/wp/v2/posts?slug=${slug}`)
-// let [post] = await res.json();
-
 // The getStaticPaths() is required for static Astro sites.
 // If using SSR, you will not need this function.
 
-  let data = await fetch("https://skyhighrecruitment.com/wp-json/wp/v2/posts")
-  let posts = await data.json();
+let data = await fetch("https://skyhighrecruitment.com/wp-json/wp/v2/posts")
+let posts = await data.json();
 
   posts.map((post) => ({
     params: { slug: post.slug },
   }));
 
-
-
+let res = await fetch(`https://skyhighrecruitment.com/wp-json/wp/v2/posts?slug=${slug}&acf_format=standard`)
+let [dataa] = await res.json();
 
 ---
 
+<!-- <script>
+	let res = await fetch(`https://skyhighrecruitment.com/wp-json/wp/v2/posts?slug=de-kunst-van-het-schrijven-van-een-overtuigend-cv&acf_format=standard`)
+let [dataa] = await res.json();
+console.log(dataa)
+</script> -->
+
 <MainLayout title="test">
 	<h1>hoi</h1>
-	<!-- <div class="hero-container">
-		<img src={Astro.props.post.acf.hero_afbeeldingHero} alt="" />
+	<div class="hero-container">
+		<img src={dataa.acf.hero_afbeeldingHero} alt="" />
 	</div>
 
-	<span set:html={Astro.props.post.content.rendered} /> -->
+
+
+	<span set:html={dataa.content.rendered} /> 
 </MainLayout>
 
 <style>
