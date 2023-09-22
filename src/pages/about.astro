@@ -1,0 +1,75 @@
+---
+import MainLayout from "../layouts/MainLayout.astro";
+
+const response = await fetch(
+	"https://skyhighrecruitment.com/wp-json/wp/v2/posts?_embed"
+);
+const posts = await response.json();
+
+const response2 = await fetch(
+	"https://skyhighrecruitment.com/wp-json/wp/v2/posts?acf_format=standard"
+);
+const images = await response2.json();
+---
+
+<script>
+	async function getPosts() {
+		const response = await fetch(
+        "https://skyhighrecruitment.com/wp-json/wp/v2/posts?acf_format=standard"
+		);
+		const post = await response.json();
+		post.forEach((pos) => {
+			console.log(pos);
+		});
+	}
+	getPosts();
+</script>
+
+<MainLayout title="test">
+	<ul>
+		{
+			images.map((Image) => (
+				<li>
+					{
+						<img
+							src={
+								Image.acf
+									.hero_afbeeldingHero
+							}
+							alt=""
+						/>
+					}
+				</li>
+			))
+		}
+	</ul>
+	<ul>
+		{
+			posts.map((post) => (
+				<li>
+					{<img src={post._embedded["wp:featuredmedia"]["0"].source_url} alt=""/>}
+				</li>
+			))
+		}
+	</ul>
+	<ul>
+		{posts.map((post) => <li set:html={post.slug} />)}
+	</ul>
+	<ul>
+		{posts.map((post) => <li set:html={post.title.rendered} />)}
+	</ul>
+	<ul>
+		{posts.map((post) => <li set:html={post.content.rendered} />)}
+	</ul>
+</MainLayout>
+
+<style>
+	* {
+		margin: 0;
+		padding: 0;
+		box-sizing: border-box;
+	}
+	ul {
+		list-style-type: none;
+	}
+</style>

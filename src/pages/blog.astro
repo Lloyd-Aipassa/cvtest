@@ -1,0 +1,73 @@
+---
+import MainLayout from "../layouts/MainLayout.astro";
+const response = await fetch(
+	"https://skyhighrecruitment.com/wp-json/wp/v2/posts?_embed"
+);
+const posts = await response.json();
+---
+
+<MainLayout title="home">
+	<h1>hi from main</h1>
+
+	<ul>
+		{
+			posts.map((post) => (
+				<a href={post.slug}>
+					<li>
+						<div class="img-container">
+							{
+								<img
+									src={
+										post
+											._embedded[
+											"wp:featuredmedia"
+										][
+											"0"
+										]
+											.source_url
+									}
+									alt=""
+								/>
+							}
+							{post.title.rendered}
+						</div>
+					</li>
+				</a>
+			))
+		}
+	</ul>
+</MainLayout>
+
+<script>
+	import MainLayout from "../layouts/MainLayout.astro";
+	const response = await fetch(
+		"https://skyhighrecruitment.com/wp-json/wp/v2/posts?_embed"
+	);
+	const posts = await response.json();
+	console.log(posts);
+</script>
+
+<style>
+	ul {
+		max-width: 1000px;
+		display: flex;
+		flex-wrap: wrap;
+		gap: 20px;
+		margin: 0 auto;
+	}
+	li {
+		display: flex;
+		flex-direction: column;
+		max-width: 400px;
+		margin-bottom: 20px;
+	}
+	.img-container{
+		max-width: 400px;
+		height: 266px;
+	}
+	img {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+	}
+</style>
