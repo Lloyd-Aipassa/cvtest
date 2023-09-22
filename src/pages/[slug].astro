@@ -16,10 +16,10 @@ export async function getStaticPaths() {
 	}));
 }
 
-const { korte_titel } = Astro.props.post.acf;
+
 ---
 
-<MainLayout title={korte_titel}>
+<MainLayout title={Astro.props.post.acf.korte_titel}>
 	<div class="hero-container">
 		<img src={Astro.props.post.acf.hero_afbeeldingHero} alt="" />
 	</div>

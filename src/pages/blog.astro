@@ -12,7 +12,7 @@ const posts = await response.json();
 	<ul>
 		{
 			posts.map((post) => (
-				<a href={post.slug}>
+				<a href=`blog/${post.slug}`>
 					<li>
 						<div class="img-container">
 							{
