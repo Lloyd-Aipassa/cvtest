@@ -1,0 +1,52 @@
+
+// voor static!!!!!!!!!!!!!!!!!!!!!!
+
+ export async function getStaticPaths() {
+ const response = await fetch(
+ 		"https://skyhighrecruitment.com/wp-json/wp/v2/posts?acf_format=standard"
+	);
+ 	const posts = await response.json();
+ 	return posts.map((post) => ({
+ 		params: {
+ 			slug: post.slug,
+ 		},
+ 		props: {
+ 			post,
+ 		},
+ 	}));
+ }
+
+
+
+
+
+
+
+
+// voor SSR!!!!!!!!!!!!!!!!!!!!!!
+const { slug } = Astro.params;
+
+// The getStaticPaths() is required for static Astro sites.
+// If using SSR, you will not need this function.
+
+let data = await fetch("https://skyhighrecruitment.com/wp-json/wp/v2/posts")
+let posts = await data.json();
+
+  posts.map((post) => ({
+    params: { slug: post.slug },
+  }));
+
+let res = await fetch(`https://skyhighrecruitment.com/wp-json/wp/v2/posts?slug=${slug}&acf_format=standard`)
+let [dataa] = await res.json();
+
+
+<MainLayout title="test">
+	<h1>hoi</h1>
+	<div class="hero-container">
+		<img src={dataa.acf.hero_afbeeldingHero} alt="" />
+	</div>
+
+
+
+	<span set:html={dataa.content.rendered} /> 
+</MainLayout>

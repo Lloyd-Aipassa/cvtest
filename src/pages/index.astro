@@ -2,20 +2,38 @@
 export const prerender = true;
 
 import MainLayout from "../layouts/MainLayout.astro";
-
 ---
 
+<script>
+	const gqlq = {
+		query: `{
+			post(id: "1594", idType: DATABASE_ID) {
+    databaseId
+    content
+    slug
+    title
+    uri
+    blog {
+      heroAfbeeldinghero {
+        sourceUrl
+      }
+    }
+  }
+}
+				`,
+	};
+
+	const response = await fetch("https://skyhighrecruitment.com/graphql", {
+		method: "POST",
+		headers: {
+			"Content-Type": "application/json",
+		},
+		body: JSON.stringify(gqlq),
+	});
+
+	const pos = await response.json();
+	console.log(pos.data.post.blog.heroAfbeeldinghero.sourceUrl);
+</script>
 <MainLayout title="home">
 	<h1>hi from main</h1>
-
-
 </MainLayout>
-
-
-
-
-
-
-
-
-
