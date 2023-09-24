@@ -6,29 +6,19 @@ const { slug } = Astro.params;
 // The getStaticPaths() is required for static Astro sites.
 // If using SSR, you will not need this function.
 
-let data = await fetch("https://skyhighrecruitment.com/wp-json/wp/v2/posts");
-let posts = await data.json();
-
-posts.map((post) => ({
-	params: { slug: post.slug },
-}));
-
-const gqlq = {
-		query: `{
-			post(id: "${slug}", idType: SLUG) {
-				databaseId
-				content
-				slug
-				title
-				uri
-				blog {
-				heroAfbeeldinghero {
-					sourceUrl
+	const gqlq = {
+			query: `{
+				post(id: "${slug}", idType: SLUG) {
+					content
+					slug	
+					blog {
+						heroAfbeeldinghero {
+							sourceUrl
+						}
+					}
 				}
-				}
-			}
-		}`,
-	};
+			}`,
+		};
 
 	const response = await fetch("https://skyhighrecruitment.com/graphql", {
 		method: "POST",
@@ -40,11 +30,9 @@ const gqlq = {
 
 	const pos = await response.json();
 	console.log(pos.data.post);
-
-// let res = await fetch(
-// 	`https://skyhighrecruitment.com/wp-json/wp/v2/posts?slug=${slug}&acf_format=standard`
-// );
-// let [dataa] = await res.json();
+	
+const {sourceUrl} = pos.data.post.blog.heroAfbeeldinghero
+const {content} = pos.data.post
 ---
 
 
@@ -52,10 +40,10 @@ const gqlq = {
 <MainLayout title="test">
 	<h1>hoi</h1>
 	<div class="hero-container">
-		<img src={pos.data.post.blog.heroAfbeeldinghero.sourceUrl} alt="" />
+		<img src={ sourceUrl } alt="" />
 	</div>
 
-	<span set:html={pos.data.post.content} />
+	<span set:html={ content } />
 </MainLayout>
 
 <style>
@@ -68,3 +56,4 @@ const gqlq = {
 		width: 100%;
 	}
 </style>
+
