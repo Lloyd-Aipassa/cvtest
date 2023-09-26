@@ -7,35 +7,35 @@ const { slug } = Astro.params;
 // If using SSR, you will not need this function.
 
 	const gqlq = {
-			query: `{
-				post(id: "${slug}", idType: SLUG) {
-					content
-					slug	
-					blog {
-						heroAfbeeldinghero {
-							sourceUrl
-						}
+		query: `{
+			post(id: "${slug}", idType: SLUG) {
+				content
+				slug	
+				blog {
+					heroAfbeeldinghero {
+						sourceUrl
 					}
 				}
-			}`,
-		};
+			}
+		}`,
+	};
 
-	const response = await fetch("https://skyhighrecruitment.com/graphql", {
-		method: "POST",
-		headers: {
-			"Content-Type": "application/json",
-		},
-		body: JSON.stringify(gqlq),
-	});
+const response = await fetch("https://cvking.brooklynwebdesign.nl/graphql", {
+	method: "POST",
+	headers: {
+		"Content-Type": "application/json",
+	},
+	body: JSON.stringify(gqlq),
+});
 
-	const pos = await response.json();
-	console.log(pos.data.post);
+const pos = await response.json();
+console.log(pos);
 
 ---
 <!-- <script>
 		const gqlq = {
 			query: `{
-				post(id: "http://localhost:4321/gebruik-chatgpt-voor-een-opvallende-sollicitatie", idType: SLUG) {
+				post(id: "1539", idType: DATABASE_ID) {
 					content
 					slug	
 					blog {
@@ -56,7 +56,7 @@ const { slug } = Astro.params;
 	});
 
 	const pos = await response.json();
-	console.log(pos.data.post.blog.heroAfbeeldinghero.sourceUrl);
+	console.log(pos);
 </script> -->
 
 
@@ -67,6 +67,10 @@ const { slug } = Astro.params;
 
 	<span set:html={ pos.data.post.content } />
 </MainLayout>
+hi
+
+
+
 
 <style>
 	* {

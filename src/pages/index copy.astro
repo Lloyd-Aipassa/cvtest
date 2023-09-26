@@ -4,7 +4,7 @@ export const prerender = true;
 import MainLayout from "../layouts/MainLayout.astro";
 ---
 
-<!-- <script>
+<script>
 	const gqlq = {
 		query: `{
 			post(id: "1594", idType: DATABASE_ID) {
@@ -33,7 +33,7 @@ import MainLayout from "../layouts/MainLayout.astro";
 
 	const pos = await response.json();
 	console.log(pos.data.post.blog.heroAfbeeldinghero.sourceUrl);
-</script> -->
+</script>
 <MainLayout title="home">
 	<hero id="hero">
 		<div class="hero">
@@ -172,62 +172,6 @@ import MainLayout from "../layouts/MainLayout.astro";
 		</div>
 	</investeer-wrapper>
 </MainLayout>
-
-<!-- <script>
-	const gqlq = {
-	query: `{
-		posts {
-    nodes {
-      slug
-      title
-      featuredImage {
-        node {
-          sourceUrl
-        }
-      }
-    }
-  }
-		}`,
-};
-
-const response = await fetch("https://cvking.brooklynwebdesign.nl/graphql", {
-	method: "POST",
-	headers: {
-		"Content-Type": "application/json",
-	},
-	body: JSON.stringify(gqlq),
-});
-
-const posts = await response.json();
-console.log(posts.data.posts)
-
-</script> -->
-<script>
-	const gqlq = {
-		query: `{
-			post(id: "1539", idType: DATABASE_ID) {
-				content
-				slug	
-				blog {
-					heroAfbeeldinghero {
-						sourceUrl
-					}
-				}
-			}
-		}`,
-	};
-
-const response = await fetch("https://cvking.brooklynwebdesign.nl/graphql", {
-	method: "POST",
-	headers: {
-		"Content-Type": "application/json",
-	},
-	body: JSON.stringify(gqlq),
-});
-
-const pos = await response.json();
-console.log(pos);
-</script>
 
 <style>
 	.button1 {
