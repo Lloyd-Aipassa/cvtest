@@ -408,4 +408,370 @@ import MainLayout from "../layouts/MainLayout.astro";
 		margin-top: 15px;
 		max-width: 500px;
 	}
+
+	@media only screen and (max-width: 900px) {
+	.header-wrapper {
+		text-align: center;
+		height: 8vh;
+		width: 100%;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		padding: 0 20px;
+	}
+
+	.hamburger{
+        width:20px;
+    }
+
+	
+    .ham-btn{
+        display: block;
+        background-color: white;
+        border: none;
+        cursor: pointer;
+    }
+        
+
+	.close-menu{
+		position: absolute;
+		top: 30px;
+		right: 30px;
+		text-align: center;
+		background-color: #FFF;
+		border: none;
+	}
+
+    .header-wrapper-mob.active{
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 100%;
+        height: 100vh;
+        border-left: 1px solid black;
+        padding-left: 20px;
+        padding-top: 80px;
+        transition: .3s;
+		background-color: #ffffff;
+		z-index: 100;
+		font-size: 20px;
+    }
+
+    .header-wrapper-mob{
+        transition: .3s;
+        position: fixed;
+        top: 0;
+        right: 0;
+        width: 100%;
+        height: 100vh;
+        border-left: 1px solid black;
+        padding-left: 20px;
+        padding-top: 80px;
+		background-color: #ffffff;
+		z-index: 100;
+		font-size: 20px;
+    }
+
+
+    .header-wrapper-mob li{
+        list-style: none;
+    }
+    .header-wrapper-mob a{
+        text-decoration: none;
+        color: black;
+    }
+
+	.logo {
+		width: 22%;
+	}
+
+	header ul {
+		display: none;
+	}
+
+	.button2 {
+		width: 100px;
+		background-color: #215ff3;
+		margin: 15px 0px;
+		overflow: hidden;
+		border-radius: 35px;
+		line-height: 17px;
+		display: flex;
+		justify-content: center;
+		position: relative;	
+	}
+	
+	.button2 a {
+		display: block;
+		color: white;
+		font-size: 14px;
+		font-weight: 900;
+		text-decoration: none;
+		padding: 6% 10px 6% 10px;
+	}
+	.button2 .arrow{
+		display: none;
+	}
+
+	body {
+		overflow-x: hidden;
+	}
+
+	body h1 {
+		font-size: 24px;
+		line-height: 30px;
+		color: #333333;
+		font-weight: 800;
+	}
+
+	body h2 {
+		font-size: 19px;
+		line-height: 25px;
+		color: #333333;
+		font-weight: 800;
+	}
+
+	body h3 {
+		font-size: 18px;
+		line-height: 32px;
+		color: #333333;
+		font-weight: 800;
+	}
+
+	body p {
+		font-size: 16px;
+		line-height: 25px;
+		color: #333333;
+		font-weight: 400;
+	}
+
+	hero-wrapper {
+		width: 100%;
+		display: flex;
+		justify-content: center;
+		background-color: #f2f5fa;
+	}
+
+	.hero {
+		padding: 0 20px;
+		height: 60vh;
+		width: 100%;
+	}
+
+	.hero br {
+		display: none;
+	}
+
+	.hero p {
+		margin: 20px 0;
+	}
+
+	.wrapperbody {
+		padding: 10px 20px;
+	}
+	.card1 {
+		max-width: 100%;
+	}
+
+	.card1-img {
+		margin: 30px 20px 0 0px;
+	}
+
+	.card1-img img {
+		width: 100%;
+	}
+
+	.card1 p {
+		margin-bottom: 20px;
+	}
+
+	.helpen-top {
+		width: 100%;
+		padding: 20px 20px;
+	}
+
+	.helpen-top br {
+		display: none;
+	}
+
+	.helpen-top h2 {
+		margin: 20px 0 10px 0;
+	}
+	.helpen-top img {
+		max-width: 100%;
+		margin-top: 20px;
+	}
+
+	.helpen-content {
+		max-width: 100%;
+	}
+
+	.helpen-bot {
+		width: 100%;
+		display: flex;
+		flex-direction: column-reverse;
+		align-items: center;
+		justify-content: space-between;
+		padding: 0 20px;
+	}
+
+	.helpen-content2 {
+		display: flex;
+	}
+
+	.cards{
+		display: flex;
+		
+		gap: 20px;
+	}
+
+	.card2,
+	.card3 {
+		position: relative;
+		width: 100%;
+		height: 357px;
+		background-color: #f8f8f9;
+		padding: 20px 20px 20px 40px;
+		margin-bottom: 20px;
+	}
+
+	.card2 p,
+	.card3 p {
+		margin-bottom: 20px;
+	}
+
+	.card3 {
+		background-color: #ffffff;
+		box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+	}
+
+	.card2::before {
+		content: "€299";
+		display: flex;
+		align-items: center;
+		position: absolute;
+		justify-content: center;
+		color: #ffffff;
+		height: 15%;
+		width: 100%;
+		left: 0;
+		bottom: 0;
+		background-color: #215ff3;
+	}
+	.card3::before {
+		content: "€399";
+		display: flex;
+		align-items: center;
+		position: absolute;
+		justify-content: center;
+		color: #ffffff;
+		height: 15%;
+		width: 100%;
+		left: 0;
+		bottom: 0;
+		background-color: #215ff3;
+	}
+
+	.helpen-content2 {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		max-width: 100%;
+		height: 157px;
+		background-color: #ffffff;
+	}
+
+	testimonial-wrapper {
+		width: 100%;
+		/* height: 70vh; */
+		background-color: #215ff3;
+		display: flex;
+		justify-content: center;
+		margin-top: 15%;
+		padding-left: 20px;
+	}
+
+	.testimonial h2 {
+		color: #ffffff;
+	}
+	.testimonial h3 {
+		color: #ffffff;
+	}
+	.testimonial {
+		padding-top: 5%;
+		width: 100%;
+	}
+
+	resultaat-wrapper {
+		width: 100%;
+		padding: 40px 20px;
+	}
+
+	.resultaat {
+		width: 100%;
+	}
+
+	.card4 {
+		width: 100%;
+	}
+
+	.card4 img {
+		max-width: 48.5%;
+	}
+
+	investeer-wrapper {
+		padding: 40px 20px;
+	}
+
+	.investeer {
+		width: 70%;
+	}
+
+	footer {
+		padding: 40px 20px;
+		width: 100%;
+	}
+
+	.footer-wrapper {
+		width: 100%;
+		flex-direction: column;
+	}
+
+	.footer-links {
+		width: 100%;
+	}
+
+	footer p {
+		color: #ffffff;
+		font-size: 16px;
+		line-height: 31px;
+	}
+
+	.footer-mid {
+		margin: 40px 0;
+	}
+}
+
+@media only screen and (max-width: 600px) {
+	.hero {
+		padding: 20px 20px 0 20px;
+		height: 100%;
+		width: 100%;
+	}
+
+	.cards{
+		display: flex;
+		flex-direction: column;
+		gap: 20px;
+		width: 100%;
+	}
+
+	/* .card4 img {
+		max-width: 100%;
+	} */
+
+	.investeer {
+		width: 100%;
+	}
+}
 </style>

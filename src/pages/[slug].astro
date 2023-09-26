@@ -30,19 +30,42 @@ const { slug } = Astro.params;
 
 	const pos = await response.json();
 	console.log(pos.data.post);
-	
-const {sourceUrl} = pos.data.post.blog.heroAfbeeldinghero
-const {content} = pos.data.post
----
 
+---
+<script>
+		const gqlq = {
+			query: `{
+				post(id: "http://localhost:4321/gebruik-chatgpt-voor-een-opvallende-sollicitatie", idType: SLUG) {
+					content
+					slug	
+					blog {
+						heroAfbeeldinghero {
+							sourceUrl
+						}
+					}
+				}
+			}`,
+		};
+
+	const response = await fetch("https://skyhighrecruitment.com/graphql", {
+		method: "POST",
+		headers: {
+			"Content-Type": "application/json",
+		},
+		body: JSON.stringify(gqlq),
+	});
+
+	const pos = await response.json();
+	console.log(pos.data.post.blog.heroAfbeeldinghero.sourceUrl);
+</script>
 
 
 <MainLayout title="test">
 	<div class="hero-container">
-		<img src={ sourceUrl } alt="" />
+		<img src={ pos.data.post.blog.heroAfbeeldinghero.sourceUrl } alt="" />
 	</div>
 
-	<span set:html={ content } />
+	<span set:html={ pos.data.post.content } />
 </MainLayout>
 
 <style>
