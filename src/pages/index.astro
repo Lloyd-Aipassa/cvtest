@@ -35,5 +35,377 @@ import MainLayout from "../layouts/MainLayout.astro";
 	console.log(pos.data.post.blog.heroAfbeeldinghero.sourceUrl);
 </script>
 <MainLayout title="home">
-	<h1>hi from main</h1>
+	<hero id="hero">
+		<div class="hero">
+			<h1>
+				Welkom bij CVKing. Jouw Gids voor <br />CV
+				Succes. <span
+					>Maak direct de juiste indruk.</span
+				>
+			</h1>
+			<p>
+				Ben je op zoek naar waardevolle tips en advies
+				om je carrière naar nieuwe hoogten te tillen?
+				Zoek niet verder! CVKing is jouw
+				one-stop-bestemming voor alles wat met
+				curriculum vitae te maken heeft.
+			</p>
+			<div class="button1">
+				<a href="/blog">Bekijk blog</a>
+				<div class="arrow">
+					<img src="/public/arrow.svg" alt="" />
+				</div>
+			</div>
+			<img src="/public/Hero.webp" alt="" />
+		</div>
+
+		<card1-wrapper>
+			<div class="wrapperbody">
+				<div class="card1">
+					<div class="card1-img">
+						<img
+							src="/public/bag.png"
+							alt=""
+						/>
+					</div>
+					<h2>
+						<b>Waarom CVKing</b>
+					</h2>
+					<p>
+						Bij CVKing begrijpen we dat jouw
+						cv meer is dan alleen een lijst
+						met werkervaring. Het is jouw
+						visitekaartje voor de
+						professionele wereld, jouw kans
+						om werkgevers te overtuigen van
+						jouw unieke kwaliteiten en
+						potentieel. Daarom zijn we
+						toegewijd om je te helpen een cv
+						te creëren dat opvalt en indruk
+						maakt.
+					</p>
+				</div>
+
+				<div class="card1">
+					<div class="card1-img">
+						<img
+							src="/public/support.png"
+							alt=""
+						/>
+					</div>
+					<h2>
+						<b>Blog</b>
+					</h2>
+					<p>
+						Onze blog zit boordevol
+						informatieve artikelen over
+						cv's. Of je nu een pas
+						afgestudeerde bent op zoek naar
+						je eerste baan, een
+						doorgewinterde professional,
+						onze blog heeft iets voor jou.
+						We behandelen onderwerpen
+						variërend van cv-opmaak en
+						inhoud tot
+						sollicitatievoorbereiding en
+						interviewstrategieën.
+					</p>
+				</div>
+
+				<div class="card1">
+					<div class="card1-img">
+						<img
+							src="/public/cup.png"
+							alt=""
+						/>
+					</div>
+					<h2>
+						<b>Expert Advies</b>
+					</h2>
+					<p>
+						Onze team van experts heeft
+						uitgebreide ervaring in werving
+						en selectie,
+						loopbaanontwikkeling en human
+						resources. We delen graag onze
+						kennis en inzichten om je te
+						helpen succes te behalen in je
+						carrière.
+					</p>
+				</div>
+			</div>
+		</card1-wrapper>
+	</hero>
+
+	<helpen-wrapper>
+		<div class="helpen-top">
+			<div class="helpen-content">
+				<h2>
+					Wij helpen professionals hun carrière
+					een boost te geven.
+				</h2>
+				<p>
+					Tot op heden hebben wij met onze
+					dienstverlening vele klanten verder
+					geholpen in hun loopbaan.<br /><br />
+				</p>
+			</div>
+			<img src="/public/Help-professionals.webp" alt="" />
+		</div>
+	</helpen-wrapper>
+
+	<investeer-wrapper>
+		<div class="investeer">
+			<h3>INVESTEER IN JEZELF</h3>
+			<p>
+				Waarom zou je jouw kostbare tijd besteden aan
+				het schrijven van een gemiddeld CV als je een
+				proffesioneel CV kan scrijven aan de hand van
+				onze tips
+			</p>
+		</div>
+		<div class="button1">
+			<a href="/blog">Bekijk Blog</a>
+			<div class="arrow">
+				<img src="/public/arrow.svg" alt="" />
+			</div>
+		</div>
+	</investeer-wrapper>
 </MainLayout>
+
+<style>
+	.button1 {
+		background-color: #215ff3;
+		margin: 35px 20px 50px;
+		overflow: hidden;
+		border-radius: 35px;
+		line-height: 17px;
+		display: flex;
+		justify-content: center;
+		position: relative;
+		align-items: center;
+		padding-right: 10px;
+		gap: 10px;
+	}
+
+	.button1 a {
+		display: block;
+		color: white;
+		font-size: 18px;
+		font-weight: 900;
+		text-decoration: none;
+		padding: 20px 0 20px 25px;
+	}
+
+	.button2 {
+		width: 180px;
+		background-color: #215ff3;
+		margin: 15px 20px;
+		overflow: hidden;
+		border-radius: 35px;
+		line-height: 17px;
+		display: flex;
+		justify-content: left;
+		position: relative;
+	}
+
+	.button2 a {
+		display: block;
+		color: white;
+		font-size: 14px;
+		font-weight: 900;
+		text-decoration: none;
+		padding: 15px 0 15px 20px;
+	}
+
+	#hero {
+		width: 100%;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		background-color: #f2f5fa;
+	}
+
+	.hero {
+		height: 850px;
+		width: 1100px;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		text-align: center;
+		justify-content: flex-end;
+	}
+
+	.hero h1 span {
+		color: #215ff3;
+	}
+
+	.hero p {
+		margin: 10px 0 30px 0;
+		max-width: 600px;
+	}
+
+	.hero img {
+		max-width: 100%;
+	}
+
+	card1-wrapper {
+		background-color: #fff2dc;
+		width: 100%;
+		padding: 3% 0;
+		display: flex;
+		justify-content: center;
+	}
+
+	.wrapperbody {
+		width: 1100px;
+		display: flex;
+		flex-wrap: wrap;
+		align-items: flex-start;
+		justify-content: space-between;
+	}
+	.card1 {
+		max-width: 300px;
+		display: flex;
+		flex-direction: column;
+	}
+
+	.card1 h2 {
+		font-size: 20px;
+		line-height: 22px;
+		margin: 20px 0 15px 0;
+	}
+
+	.card1-img {
+		padding: 7px;
+		width: 55px;
+		height: 55px;
+		border-radius: 10px;
+		background-color: #215ff3;
+	}
+
+	.card1-img img {
+		width: 100%;
+	}
+
+	helpen-wrapper {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
+
+	.helpen-top {
+		width: 1100px;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		flex-wrap: wrap;
+		padding-top: 5%;
+	}
+
+	.helpen-top img {
+		max-width: 539px;
+	}
+
+	.helpen-content {
+		max-width: 470px;
+	}
+
+	.helpen-bot {
+		width: 1100px;
+		display: flex;
+		align-items: flex-start;
+		justify-content: space-between;
+	}
+
+	.helpen-bot a {
+		text-decoration: none;
+	}
+
+	.helpen-content2 {
+		display: flex;
+		flex-direction: column;
+	}
+
+	.cards {
+		display: flex;
+		gap: 20px;
+	}
+
+	.card2,
+	.card3 {
+		position: relative;
+		width: 326px;
+		height: 357px;
+		background-color: #f8f8f9;
+		padding: 20px 20px 20px 40px;
+	}
+
+	.card2 p,
+	.card3 p {
+		margin-bottom: 20px;
+	}
+
+	.card3 {
+		background-color: #ffffff;
+		box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+	}
+
+	.card2::before {
+		content: "€299";
+		display: flex;
+		align-items: center;
+		position: absolute;
+		justify-content: center;
+		color: #ffffff;
+		height: 15%;
+		width: 100%;
+		left: 0;
+		bottom: 0;
+		background-color: #215ff3;
+	}
+	.card3::before {
+		content: "€399";
+		display: flex;
+		align-items: center;
+		position: absolute;
+		justify-content: center;
+		color: #ffffff;
+		height: 15%;
+		width: 100%;
+		left: 0;
+		bottom: 0;
+		background-color: #215ff3;
+	}
+
+	.helpen-content2 {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		max-width: 354px;
+		height: 357px;
+	}
+
+	investeer-wrapper {
+		padding: 5% 0;
+		width: 100%;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
+
+	.investeer {
+		max-width: 600px;
+		text-align: center;
+	}
+
+	.investeer h3 {
+		color: #215ff3;
+	}
+
+	.investeer p {
+		margin-top: 15px;
+		max-width: 500px;
+	}
+</style>

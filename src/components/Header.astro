@@ -1,17 +1,34 @@
 ---
 
 ---
+
+<script>
+    const Close = document.querySelector(".close-menu")
+const hamburger = document.querySelector(".ham-btn")
+const menu = document.querySelector(".active")
+hamburger.addEventListener('click', ()=>{
+    menu.classList.toggle("active");
+})
+
+Close.addEventListener('click', ()=>{
+    menu.classList.toggle("active");
+})
+
+document.querySelectorAll(".nav-li").forEach(n => n.addEventListener("click",() => {
+    menu.classList.remove("active");
+}))
+</script>
+
 <header>
     <div class="header-wrapper">
         <img class="logo" src="/public/0x0.png" alt="">
         <button class="ham-btn">
-            <img class="hamburger" src="/public/0x0.png">
+            <img class="hamburger" src="/public/Hamburger.png">
         </button>
         <ul> 
             <li><a href="/">Home</a></li>
             <li><a href="/blog">Blog</a></li>
         </ul>
-        <div class="taal">Language: English</div>
     </div>
 </header>
 

@@ -6,3 +6,35 @@
     box-sizing: border-box;
     font-family: "Nunito Sans", sans-serif;
 }
+
+body {
+	background-color: #ffffff;
+}
+
+body h1 {
+	font-size: 37px;
+	line-height: 47px;
+	color: #333333;
+	font-weight: 800;
+}
+
+body h2 {
+	font-size: 31px;
+	line-height: 39px;
+	color: #333333;
+	font-weight: 800;
+}
+
+body h3 {
+	font-size: 18px;
+	line-height: 32px;
+	color: #333333;
+	font-weight: 800;
+}
+
+body p {
+	font-size: 17px;
+	line-height: 26px;
+	color: #333333;
+	font-weight: 400;
+}
