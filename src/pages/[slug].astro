@@ -10,11 +10,13 @@ const { slug } = Astro.params;
 		query: `{
 			post(id: "${slug}", idType: SLUG) {
 				content
-				slug	
+				slug
+				title	
 				blog {
 					heroAfbeeldinghero {
 						sourceUrl
 					}
+					description
 				}
 			}
 		}`,
@@ -32,35 +34,8 @@ const pos = await response.json();
 console.log(pos);
 
 ---
-<!-- <script>
-		const gqlq = {
-			query: `{
-				post(id: "1539", idType: DATABASE_ID) {
-					content
-					slug	
-					blog {
-						heroAfbeeldinghero {
-							sourceUrl
-						}
-					}
-				}
-			}`,
-		};
 
-	const response = await fetch("https://cvking.brooklynwebdesign.nl/graphql", {
-		method: "POST",
-		headers: {
-			"Content-Type": "application/json",
-		},
-		body: JSON.stringify(gqlq),
-	});
-
-	const pos = await response.json();
-	console.log(pos);
-</script> -->
-
-
-<MainLayout title="test">
+<MainLayout title={pos.data.post.title} description={pos.data.post.blog.description} >
 	<div class="hero-container">
 		<img src={ pos.data.post.blog.heroAfbeeldinghero.sourceUrl } alt="" />
 	</div>
