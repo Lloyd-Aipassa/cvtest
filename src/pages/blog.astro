@@ -4,18 +4,21 @@ import MainLayout from "../layouts/MainLayout.astro";
 const gqlq = {
 		query: `{
             posts {
-            nodes {
-            featuredImage {
-                node {
-                    sourceUrl
-                }
-            }
-            title
-            slug
-            }
-           }
+    pageInfo {
+      endCursor
+      hasNextPage
+    }
+    nodes {
+      blog {
+        heroAfbeeldinghero {
+          sourceUrl
         }
-            `,
+      }
+      slug
+      title
+    }
+  }
+        }`,
 	};
 
 	const response = await fetch("https://skyhighrecruitment.com/graphql",
@@ -41,7 +44,7 @@ const gqlq = {
 						<div class="img-container">
                             {
 								<img
-									src={post.featuredImage.node.sourceUrl}
+									src={post.blog.heroAfbeeldinghero.sourceUrl}
 									alt=""
 								/>
 							}
@@ -100,7 +103,7 @@ const gqlq = {
             `,
 	};
 
-	const response = await fetch("https://skyhighrecruitment.com/graphql",
+	const response = await fetch("https://skyhighrecruitment.com/graphql?limit=2",
     {
 		method: "POST",
 		headers: {
