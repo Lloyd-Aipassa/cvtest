@@ -1,6 +1,6 @@
 ---
 import MainLayout from "../layouts/MainLayout.astro";
-import MainLayout2 from "../layouts/MainLayoutBlog.astro";
+
 const gqlq = {
 	query: `{
 		posts {
@@ -61,10 +61,9 @@ const posts = await response.json();
 	const posts = await response.json();
 	console.log(posts)
 </script> -->
-
-<MainLayout2 title="test">
+<MainLayout title="test">
 	<section id="hero">
-		<img src="/0x0.png" transition:name="image-e" alt="">
+		<!-- <img src="/0x0.png" transition:name="image-e" alt=""> -->
 		<h1>BLOG</h1>
 	</section>
 	<section id="blog">
@@ -86,23 +85,33 @@ const posts = await response.json();
 									/>
 								}
 							</div>
-							<p><b>{post.title}</b></p>
-							<p>{post.excerpt}</p>
+							<div
+								set:html={
+									post.title
+								}
+								class="title-container"
+							/>
+							<div
+								set:html={
+									post.excerpt
+								}
+								class="content-container"
+							/>
 						</li>
 					</a>
 				))
 			}
 		</ul>
 	</section>
-</MainLayout2>
+</MainLayout>
 
 <style>
-	#hero{
+	/* #hero{
 		text-align: center;
 	}
 	#hero img{
 		width: 400px;
-	}
+	} */
 	ul {
 		max-width: 1100px;
 		margin: 50px auto 100px;
@@ -121,7 +130,7 @@ const posts = await response.json();
 		overflow: hidden;
 	}
 
-	li p{
+	li p {
 		padding: 24px;
 	}
 	.img-container {
@@ -134,9 +143,42 @@ const posts = await response.json();
 		object-fit: cover;
 	}
 
-	a{
+	a {
 		text-decoration: none;
-		color: ;
+		color:;
+	}
+
+	.title-container {
+		font-weight: 800;
+		margin: 10px;
+	}
+	.content-container {
+		margin: 10px;
+	}
+
+	@media only screen and (max-width: 720px) {
+		h1{
+			text-align: center;
+		}
+		ul {
+			max-width: 1100px;
+			width: 100%;
+			margin: 20px auto 50px;
+			display: flex;
+			flex-direction: column;
+
+			gap: 20px;
+		}
+		li {
+			
+		
+			text-align: center;
+			margin: 20px auto;
+			max-width: 90%;
+			box-shadow: 3px 0px 12px 2px rgba(0, 0, 0, 0.23);
+			background-color: #fff;
+			overflow: hidden;
+		}
 	}
 </style>
 
