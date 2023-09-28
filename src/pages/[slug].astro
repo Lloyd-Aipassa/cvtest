@@ -6,8 +6,8 @@ const { slug } = Astro.params;
 // The getStaticPaths() is required for static Astro sites.
 // If using SSR, you will not need this function.
 
-	const gqlq = {
-		query: `{
+const gqlq = {
+	query: `{
 			post(id: "${slug}", idType: SLUG) {
 				content
 				slug
@@ -20,7 +20,7 @@ const { slug } = Astro.params;
 				}
 			}
 		}`,
-	};
+};
 
 const response = await fetch("https://cvking.brooklynwebdesign.nl/graphql", {
 	method: "POST",
@@ -32,28 +32,29 @@ const response = await fetch("https://cvking.brooklynwebdesign.nl/graphql", {
 
 const pos = await response.json();
 console.log(pos);
-
 ---
 
-<MainLayout title={pos.data.post.title} description={pos.data.post.blog.description} >`
+<MainLayout
+	title={pos.data.post.title}
+	description={pos.data.post.blog.description}
+>
 	<!-- <img class="logo" src="/0x0.png" alt="" transition:name="image-e">` -->
 	<div class="hero-container">
-		<img src={ pos.data.post.blog.heroAfbeeldinghero.sourceUrl } alt="" />
+		<img
+			src={pos.data.post.blog.heroAfbeeldinghero.sourceUrl}
+			alt=""
+		/>
 	</div>
 
-	<section set:html={ pos.data.post.content } class="content-container"></section>
+	<section set:html={pos.data.post.content} class="content-container" />
 </MainLayout>
-
-
-
-
 
 <style>
 	.hero-container img {
 		width: 100%;
 	}
 
-	.content-container{
+	.content-container {
 		position: relative;
 		max-width: 1000px;
 		margin: -50px auto 100px;
@@ -62,5 +63,16 @@ console.log(pos);
 		padding: 50px;
 		box-shadow: 3px 0px 12px 2px rgba(0, 0, 0, 0.23);
 	}
-</style>
 
+	@media only screen and (max-width: 720px) {
+		.content-container {
+			position: relative;
+			max-width: 1000px;
+			margin: -50px auto 35px;
+			background-color: #fff;
+			z-index: 2;
+			padding: 50px 24px;
+			box-shadow: 3px 0px 12px 2px rgba(0, 0, 0, 0.23);
+		}
+	}
+</style>

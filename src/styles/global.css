@@ -13,9 +13,10 @@ body {
 
 h1 {
 	font-size: 35px;
-	line-height: 45px;
+	line-height: 40px;
 	color: #333333;
 	font-weight: 800;
+	margin-bottom: 10px;
 }
 
 h2 {
@@ -37,4 +38,36 @@ body p, li {
 	line-height: 26px;
 	color: #333333;
 	font-weight: 400;
+}
+
+@media only screen and (max-width: 720px) {
+	h1 {
+		font-size: 25px;
+		line-height: 30px;
+		color: #333333;
+		font-weight: 800;
+		margin-bottom: 10px;
+	}
+	
+	h2 {
+		font-size: 21px;
+		line-height: 25px;
+		color: #333333;
+		font-weight: 800;
+		margin: 10px 0;
+	}
+	
+	h3 {
+		font-size: 18px;
+		line-height: 32px;
+		color: #333333;
+		font-weight: 800;
+	}
+	
+	body p, li {
+		font-size: 17px;
+		line-height: 26px;
+		color: #333333;
+		font-weight: 400;
+	}
 }
