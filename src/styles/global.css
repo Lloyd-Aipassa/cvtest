@@ -54,7 +54,7 @@ body p, li {
 		line-height: 25px;
 		color: #333333;
 		font-weight: 800;
-		margin: 10px 0;
+		margin: 20px 0 10px;
 	}
 	
 	h3 {
@@ -62,11 +62,12 @@ body p, li {
 		line-height: 32px;
 		color: #333333;
 		font-weight: 800;
+		margin: 20px 0 0px;
 	}
 	
 	body p, li {
-		font-size: 17px;
-		line-height: 26px;
+		font-size: 15px;
+		line-height: 25px;
 		color: #333333;
 		font-weight: 400;
 	}
