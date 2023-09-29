@@ -15,6 +15,7 @@ const gqlq = {
 				blog {
 					heroAfbeeldinghero {
 						sourceUrl
+						altText
 					}
 					description
 				}
@@ -42,7 +43,7 @@ console.log(pos);
 	<div class="hero-container">
 		<img
 			src={pos.data.post.blog.heroAfbeeldinghero.sourceUrl}
-			alt=""
+			alt={pos.data.post.blog.heroAfbeeldinghero.altText}
 		/>
 	</div>
 

@@ -10,6 +10,7 @@ const gqlq = {
 	  excerpt
       featuredImage {
         node {
+		  altText	
           sourceUrl
         }
       }
@@ -81,7 +82,7 @@ const posts = await response.json();
 												.node
 												.sourceUrl
 										}
-										alt=""
+										alt={post.featuredImage.node.altText}
 									/>
 								}
 							</div>
